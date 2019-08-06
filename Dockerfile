@@ -17,9 +17,14 @@ RUN go build \
     github.com/dennisstritzke/ipsec_exporter
 
 # Artifact container.
-FROM scratch
+FROM alpine:3.10.1
+
+# Install the strongswan package for the ipsec command that our exporter uses.
+RUN apk --no-cache add strongswan
 
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /go/src/github.com/dennisstritzke/ipsec_exporter/build/ipsec_exporter /ipsec_exporter
 
 USER scratchuser
+
+CMD ["/ipsec_exporter"]
