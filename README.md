@@ -1,12 +1,5 @@
-# IPsec Exporter [![CircleCI](https://circleci.com/gh/dennisstritzke/ipsec_exporter/tree/master.svg?style=svg)](https://circleci.com/gh/dennisstritzke/ipsec_exporter/tree/master)
+# IPsec Exporter ![Test](https://github.com/dennisstritzke/ipsec_exporter/workflows/Test/badge.svg)
 Prometheus exporter for ipsec metrics, written in Go.
-
-## Quick Start
-```
-glide install
-go test -v $(glide novendor)
-go install github.com/dennisstritzke/ipsec_exporter
-```
 
 ## Functionality
 The IPsec exporter is determining the state of the configured IPsec tunnels via the following procedure.
